@@ -1,0 +1,55 @@
+﻿@using System.Data
+@model List<LibraryInfrastructure.Models.BookSearchResult>
+
+@{
+    ViewData["Title"] = "Запит 1";
+    var workers = ViewBag.Workers as List<SelectListItem> ?? new List<SelectListItem>();
+    var selectedWorker = ViewBag.SelectedWorkerFullName as string ?? "";
+}
+
+<h2>Переглянути книги, які були додані працівником</h2>
+
+<a asp-action="Index">Назад</a>
+
+<form method="get" asp-action="Index1">
+    <div class="form-group">
+        <label for="workerSelect">Оберіть працівника:</label>
+        <select class="form-control" id="workerSelect" name="workerFullName" required>
+            <option value="">-- Оберіть --</option>
+            @foreach (var worker in workers)
+            {
+                <option value="@worker.Text" selected="@(worker.Text == selectedWorker ? "selected" : null)">
+                    @worker.Text
+                </option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Пошук</button>
+</form>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Назва</th>
+                <th>Автор</th>
+                <th>Жанр</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td>@book.Genre</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (!string.IsNullOrEmpty(ViewBag.InputName))
+{
+    <p>Не знайдено книг, доданих працівником.</p>
+}

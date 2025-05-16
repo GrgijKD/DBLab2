@@ -1,0 +1,114 @@
+﻿@model List<string>
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using System.Text.Json
+@using System.Text.Encodings.Web
+@{
+    ViewData["Title"] = "Запит 7";
+    var authors = (List<SelectListItem>)ViewBag.Authors;
+    var authorsJson = JsonSerializer.Serialize(
+        authors,
+        new JsonSerializerOptions { Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping }
+    );
+    var selectedAuthors = ViewBag.SelectedAuthors as List<int> ?? new List<int>();
+}
+
+<h2>Переглянути доступні книги, що належать одному з обраних авторів</h2>
+
+<a asp-action="Index">Назад</a>
+
+<form method="post" asp-action="SearchBooksByAuthors">
+    <div id="authorSelectors">
+        @for (int i = 0; i < selectedAuthors.Count; i++)
+        {
+            <div class="author-select-container">
+                <select class="form-control mb-2" name="authorIds">
+                    @foreach (var author in authors)
+                    {
+                        <option value="@author.Value"
+                                selected="@(author.Value == selectedAuthors[i].ToString())">@author.Text</option>
+                    }
+                </select>
+            </div>
+        }
+        @if (selectedAuthors.Count == 0)
+        {
+            <div class="author-select-container">
+                <select class="form-control mb-2" name="authorIds">
+                    @foreach (var author in authors)
+                    {
+                        <option value="@author.Value">@author.Text</option>
+                    }
+                </select>
+            </div>
+        }
+    </div>
+    <div class="mb-3">
+        <button type="button" class="btn btn-success" onclick="addAuthor()">Додати автора</button>
+        <button type="button" class="btn btn-danger" onclick="removeAuthor()">Видалити автора</button>
+    </div>
+    <button type="submit" class="btn btn-primary">Пошук</button>
+</form>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-warning mt-3">@ViewBag.Message</div>
+}
+
+@if (Model != null && Model.Any())
+{
+    <h3 class="mt-4">Книги:</h3>
+    <ul>
+        @foreach (var title in Model)
+        {
+            <li>@title</li>
+        }
+    </ul>
+}
+else if (Model != null)
+{
+    <p class="mt-4">Книг за обраними авторами не знайдено.</p>
+}
+
+@section Scripts {
+    <script>
+        const allAuthors = @Html.Raw(authorsJson);
+
+        function addAuthor() {
+            const selectors = document.querySelectorAll('#authorSelectors select');
+            const usedValues = Array.from(selectors).map(s => s.value);
+
+            const availableAuthors = allAuthors.filter(a => !usedValues.includes(a.Value));
+
+            if (availableAuthors.length === 0) {
+                alert("Більше немає авторів");
+                return;
+            }
+
+            const container = document.createElement('div');
+            container.className = 'author-select-container';
+
+            const select = document.createElement('select');
+            select.className = 'form-control mb-2';
+            select.name = 'authorIds';
+
+            availableAuthors.forEach(a => {
+                const option = document.createElement('option');
+                option.value = a.Value;
+                option.textContent = a.Text;
+                select.appendChild(option);
+            });
+
+            container.appendChild(select);
+            document.getElementById('authorSelectors').appendChild(container);
+        }
+
+        function removeAuthor() {
+            const containers = document.querySelectorAll('#authorSelectors .author-select-container');
+            if (containers.length > 1) {
+                containers[containers.length - 1].remove();
+            } else {
+                alert("Має бути хоча б один автор");
+            }
+        }
+    </script>
+}

@@ -1,0 +1,91 @@
+﻿@model LibraryDomain.Model.Book
+
+@{
+    ViewData["Title"] = "Додавання";
+}
+
+<h1>Додавання</h1>
+
+<h4>Книга</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Title" class="control-label">Назва</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PublisherId" class="control-label">Видавництво</label>
+                <div class="d-flex">
+                    @if (ViewBag.Publishers != null)
+                    {
+                        <select asp-for="PublisherId" class="form-control" asp-items="ViewBag.Publishers"></select>
+                    }
+                    else
+                    {
+                        <p class="text-muted">Немає доступних видавництв</p>
+                    }
+                    <a asp-controller="Publishers" asp-action="Create" class="btn btn-outline-secondary ms-2">Додати видавництво</a>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Ким додано</label>
+                <input type="text" class="form-control" value="@ViewBag.CurrentUserDisplay" readonly />
+                <input type="hidden" name="AddedBy" value="@ViewBag.CurrentWorkerId" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Автор</label>
+                <div class="d-flex">
+                    @if (ViewBag.Authors is MultiSelectList authorsList && authorsList.Any())
+                    {
+                        <select name="SelectedAuthors" class="form-control" asp-items="ViewBag.Authors" multiple></select>
+                    }
+                    else
+                    {
+                        <p class="text-muted">Немає доступних авторів</p>
+                    }
+                    <a asp-controller="Authors" asp-action="Create" class="btn btn-outline-secondary ms-2">Додати автора</a>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Жанр</label>
+                <div class="d-flex">
+                    @if (ViewBag.Genres is MultiSelectList genresList && genresList.Any())
+                    {
+                        <select name="SelectedGenres" class="form-control" asp-items="ViewBag.Genres" multiple></select>
+                    }
+                    else
+                    {
+                        <p class="text-muted">Немає доступних жанрів</p>
+                    }
+                    <a asp-controller="Genres" asp-action="Create" class="btn btn-outline-secondary ms-2">Додати жанр</a>
+                </div>
+            </div>
+
+            <p class="text-muted">Ви можете обрати декілька авторів/жанрів або відмінити вибір автора/жанру за допомогою натискання ЛКМ+Ctrl</p>
+
+            <div class="form-group">
+                <input type="submit" value="Додати" class="btn" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Повернутися</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

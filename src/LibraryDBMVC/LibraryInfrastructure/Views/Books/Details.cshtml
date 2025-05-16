@@ -1,0 +1,143 @@
+﻿@model LibraryDomain.Model.Book
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Детальніше";
+}
+
+<h1>Детальніше про книгу</h1>
+
+<div>
+    <h4>Книга</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Назва
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Title
+        </dd>
+        <dt class="col-sm-2">
+            Ким додано
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Worker?.FullName
+        </dd>
+        <dt class="col-sm-2">
+            Видавництво
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Publisher?.Name
+        </dd>
+        <dt class="col-sm-2">
+            Автор
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.AuthorsBooks?.Any() == true)
+            {
+                <ul>
+                    @foreach (var author in Model.AuthorsBooks)
+                    {
+                        <li>@author.Author.FullName</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <span>Автори не вказані</span>
+            }
+        </dd>
+        <dt class="col-sm-2">
+            Жанр
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.GenresBooks?.Any() == true)
+            {
+                <ul>
+                    @foreach (var genre in Model.GenresBooks)
+                    {
+                        <li>@genre.Genre.GenreName</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <span>Жанри не вказані</span>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Error"]
+        </div>
+    }
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form asp-controller="BookReservations" asp-action="Reserve" method="post">
+            <input type="hidden" name="bookId" value="@Model.Id" />
+            <button type="submit" class="btn btn-primary mt-2">Забронювати</button>
+        </form>
+    }
+
+    @if (User.IsInRole("Librarian"))
+    {
+        <form asp-action="ChangeStatus" asp-controller="Books" method="post" class="mt-3" onsubmit="return validateInput()">
+            <input type="hidden" name="bookId" value="@Model.Id" />
+            <div class="input-group">
+                <select name="newStatus" class="form-select" id="statusSelect" onchange="toggleDaysInput()">
+                    <option value="Заброньована">Заброньована</option>
+                    <option value="Недоступна">Недоступна</option>
+                    <option value="Прострочена">Прострочена</option>
+                    <option value="Доступна">Доступна</option>
+                </select>
+                <input type="number" name="daysToOverdue" class="form-control d-none" id="daysInput"
+                       placeholder="Кількість днів до прострочення" min="1" step="1"
+                       oninvalid="this.setCustomValidity('Введіть ціле число від 1 і більше')" />
+                <button type="submit" class="btn btn-primary">Змінити статус</button>
+            </div>
+        </form>
+
+        <script>
+            function toggleDaysInput() {
+                var statusSelect = document.getElementById("statusSelect");
+                var daysInput = document.getElementById("daysInput");
+
+                if (statusSelect.value === "Недоступна") {
+                    daysInput.classList.remove("d-none");
+                    daysInput.setAttribute("required", "required");
+                } else {
+                    daysInput.classList.add("d-none");
+                    daysInput.removeAttribute("required");
+                    daysInput.value = "";
+                    daysInput.setCustomValidity("");
+                }
+            }
+
+            const daysInput = document.getElementById("daysInput");
+
+            daysInput.addEventListener("input", function () {
+              const value = this.value.trim();
+
+              if (value === "" || value.includes(".") || value.includes(",")) {
+                this.setCustomValidity("Введіть ціле число від 1 і більше");
+              } else if (+value < 1) {
+                this.setCustomValidity("Введіть ціле число від 1 і більше");
+              } else {
+                this.setCustomValidity("");
+              }
+            });
+
+        </script>
+    }
+
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Редагувати</a>
+        <a asp-action="Delete" asp-route-id="@Model?.Id" class="btn">Видалити</a>
+    }
+    <a asp-action="Index" class="btn btn-secondary">Повернутися</a>
+</div>

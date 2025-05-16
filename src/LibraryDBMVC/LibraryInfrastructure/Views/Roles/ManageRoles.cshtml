@@ -1,0 +1,43 @@
+﻿@model LibraryInfrastructure.Models.ManageUserRolesViewModel
+@{
+    ViewData["Title"] = "Редагування ролей";
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<h2>Керування ролями для @Model.UserName</h2>
+
+<h3>Поточні ролі:</h3>
+<ul>
+    @foreach (var role in Model.UserRoles)
+    {
+        <li>
+            @role
+            @if (role != "Admin")
+            {
+                <form asp-action="RemoveRole" method="post" class="d-inline">
+                    <input type="hidden" name="userId" value="@Model.UserId" />
+                    <input type="hidden" name="role" value="@role" />
+                    <button type="submit" class="btn btn-danger btn-sm">Видалити</button>
+                </form>
+            }
+        </li>
+    }
+</ul>
+
+<h3>Додати роль:</h3>
+<form asp-action="AddRole" method="post">
+    <input type="hidden" name="userId" value="@Model.UserId" />
+    <select name="role" class="form-select">
+        @foreach (var role in Model.AllRoles.Except(Model.UserRoles))
+        {
+            <option value="@role">@role</option>
+        }
+    </select>
+    <button type="submit" class="btn btn-primary mt-2">Додати</button>
+</form>
+
+<a asp-action="Index" class="btn btn-secondary mt-3">Повернутися</a>

@@ -1,0 +1,121 @@
+﻿@model List<string>
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using System.Text.Encodings.Web
+@using System.Text.Json
+
+@{
+    var genres = (List<SelectListItem>)ViewBag.Genres;
+    var genresJson = JsonSerializer.Serialize(
+        genres,
+        new JsonSerializerOptions
+                {
+                    Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+                });
+
+    ViewData["Title"] = "Запит 6";
+    var selectedGenres = ViewBag.SelectedGenres as List<int> ?? new List<int>();
+}
+
+<h2>Переглянути авторів, що мають книги в усіх обраних жанрах</h2>
+
+<a asp-action="Index">Назад</a>
+
+<form method="post" asp-action="SearchAuthorsByGenres" id="genreForm">
+    <div id="genreSelectors">
+        @if (selectedGenres.Any())
+        {
+            foreach (var selectedId in selectedGenres)
+            {
+                <div class="genre-select-container">
+                    <select class="form-control mb-2" name="genreIds">
+                        @foreach (var genre in genres)
+                        {
+                            <option value="@genre.Value" selected="@(genre.Value == selectedId.ToString())">@genre.Text</option>
+                        }
+                    </select>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="genre-select-container">
+                <select class="form-control mb-2" name="genreIds">
+                    @foreach (var genre in genres)
+                    {
+                        <option value="@genre.Value">@genre.Text</option>
+                    }
+                </select>
+            </div>
+        }
+    </div>
+    <div class="mb-3">
+        <button type="button" class="btn btn-success" onclick="addGenre()">Додати жанр</button>
+        <button type="button" class="btn btn-danger" onclick="removeGenre()">Видалити жанр</button>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Пошук</button>
+</form>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-warning mt-3">@ViewBag.Message</div>
+}
+
+@if (Model != null && Model.Any())
+{
+    <h3 class="mt-4">Автори:</h3>
+    <ul>
+        @foreach (var name in Model)
+        {
+            <li>@name</li>
+        }
+    </ul>
+}
+else if (Model != null)
+{
+    <p class="mt-4">Авторів за обраними жанрами не знайдено.</p>
+}
+
+@section Scripts {
+    <script>
+        const allGenres = @Html.Raw(genresJson);
+
+        function addGenre() {
+            const genreSelectors = document.querySelectorAll('#genreSelectors select');
+            const usedValues = Array.from(genreSelectors).map(s => s.value);
+
+            const availableGenres = allGenres.filter(g => !usedValues.includes(g.Value));
+
+            if (availableGenres.length === 0) {
+                alert("Більше немає жанрів");
+                return;
+            }
+
+            const container = document.createElement('div');
+            container.className = 'genre-select-container';
+
+            const select = document.createElement('select');
+            select.className = 'form-control mb-2';
+            select.name = 'genreIds';
+
+            availableGenres.forEach(g => {
+                const option = document.createElement('option');
+                option.value = g.Value;
+                option.textContent = g.Text;
+                select.appendChild(option);
+            });
+
+            container.appendChild(select);
+            document.getElementById('genreSelectors').appendChild(container);
+        }
+
+        function removeGenre() {
+            const containers = document.querySelectorAll('#genreSelectors .genre-select-container');
+            if (containers.length > 0) {
+                containers[containers.length - 1].remove();
+            } else {
+                alert("Немає жанрів для видалення");
+            }
+        }
+    </script>
+}

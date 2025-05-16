@@ -1,0 +1,27 @@
+﻿@model List<LibraryInfrastructure.ViewModels.UserWithRolesViewModel>
+@{
+    ViewData["Title"] = "Керування ролями";
+}
+
+<h1>Список користувачів та їх ролі</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Ролі</th>
+            <th>Дії</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>@string.Join(", ", user.Roles)</td>
+                <td>
+                    <a asp-action="ManageRoles" asp-route-userId="@user.Id" class="btn btn-primary">Редагувати ролі</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,16 @@
+﻿@page
+@model LibraryInfrastructure.Areas.Identity.Pages.Account.ConfirmEmailModel
+@{
+    ViewData["Title"] = "Підтвердження електронної пошти";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Email підтверджено!</h4>
+    <p>Тепер ви можете увійти в систему.</p>
+</div>
+
+<div>
+    <a asp-area="Identity" asp-page="/Account/Login">Вхід</a>
+</div>

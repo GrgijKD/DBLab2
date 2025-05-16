@@ -1,0 +1,45 @@
+﻿@model List<BookExcludePublisherResult>
+
+@{
+    ViewData["Title"] = "Запит 5";
+}
+
+<h2>Переглянути книги, які не належать обраному видавництву</h2>
+
+<a asp-action="Index">Назад</a>
+
+<form method="get" asp-action="SearchBooksExcludePublisher">
+    <div class="form-group">
+        <label for="publisherId">Оберіть видавництво</label>
+        <select id="publisherId" name="publisherId" class="form-control" asp-items="ViewBag.Publishers">
+            <option value="">-- Оберіть видавництво --</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Пошук</button>
+</form>
+
+@if (Model != null && Model.Any())
+{
+    <h4 class="mt-4">Результати:</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Назва книги</th>
+                <th>Видавництво</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.PublisherName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (ViewBag.SelectedPublisherId != null)
+{
+    <p class="mt-3">Книги, що не належать обраному видавництву, не знайдено.</p>
+}

@@ -1,0 +1,99 @@
+﻿@model IEnumerable<LibraryDomain.Model.BookViewModel>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Книги";
+}
+
+<h1>Книги</h1>
+
+<form asp-action="Index" method="get" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" class="form-control" placeholder="Пошук..." />
+        <button type="submit" class="btn btn-primary">Шукати</button>
+    </div>
+</form>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create" class="btn">Додати нову книгу</a>
+    </p>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><a class="text-dark" asp-action="Index" asp-route-sortOrder="@ViewData["TitleSortParam"]">Назва</a></th>
+            <th><a class="text-dark" asp-action="Index" asp-route-sortOrder="@ViewData["AddedBySortParam"]">Ким додано</a></th>
+            <th><a class="text-dark" asp-action="Index" asp-route-sortOrder="@ViewData["PublisherSortParam"]">Видавництво</a></th>
+            <th><a class="text-dark" asp-action="Index" asp-route-sortOrder="@ViewData["AuthorSortParam"]">Автор</a></th>
+            <th><a class="text-dark" asp-action="Index" asp-route-sortOrder="@ViewData["GenreSortParam"]">Жанр</a></th>
+            <th>Статус</th>
+            <th>Дії</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Book.Title</td>
+                <td>@item.Book.Worker.FullName</td>
+                <td>@item.Book.Publisher.Name</td>
+                <td>
+                    @if (item.Book.AuthorsBooks.Any())
+                    {
+                        @string.Join(", ", item.Book.AuthorsBooks.Select(ab => ab.Author.FullName))
+                    }
+                    else
+                    {
+                        <span>Немає авторів</span>
+                    }
+                </td>
+                <td>
+                    @if (item.Book.GenresBooks.Any())
+                    {
+                        @string.Join(", ", item.Book.GenresBooks.Select(gb => gb.Genre.GenreName))
+                    }
+                    else
+                    {
+                        <span>Немає жанрів</span>
+                    }
+                </td>
+                <td>
+                    @if (item.Book.BookReservations.Any())
+                    {
+                        var reservation = item.Book.BookReservations.OrderByDescending(br => br.ReservationDate).FirstOrDefault();
+                        var statusClass = reservation?.Status switch
+                        {
+                            "Заброньована" => "status-reserved",
+                            "Недоступна" => "status-unavailable",
+                            "Прострочена" => "status-overdue",
+                            _ => "status-available"
+                        };
+                        <span class="@statusClass">@reservation?.Status</span>
+                    }
+                    else if (item.Book.ClientsBooks.Any(cb => cb.ReturnDate == null))
+                    {
+                        <span class="status-unavailable">Недоступна</span>
+                    }
+                    else
+                    {
+                        <span class="status-available">Доступна</span>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Book.Id" class="btn">Детальніше</a>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.Book.Id" class="btn">Редагувати</a>
+                        <a asp-action="Delete" asp-route-id="@item.Book.Id" class="btn">Видалити</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,64 @@
+﻿@model LibraryDomain.Model.Book
+
+@{
+    ViewData["Title"] = "Редагування";
+}
+
+<h1>Редагування</h1>
+
+<h4>Книга</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Title" class="control-label">Назва</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PublisherId" class="control-label">Видавництво</label>
+                <select asp-for="PublisherId" class="form-control" asp-items="ViewBag.Publishers"></select>
+                <span asp-validation-for="PublisherId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Ким додано</label>
+                <input type="text" class="form-control" value="@ViewBag.CurrentUserDisplay" readonly />
+                <input type="hidden" name="AddedBy" value="@ViewBag.CurrentWorkerId" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Автор</label>
+                <select name="SelectedAuthors" class="form-control" asp-items="ViewBag.Authors" multiple></select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Жанр</label>
+                <select name="SelectedGenres" class="form-control" asp-items="ViewBag.Genres" multiple></select>
+            </div>
+
+            <input type="hidden" asp-for="Id" />
+
+            <p class="text-muted">Ви можете обрати декілька авторів/жанрів або відмінити вибір автора/жанру за допомогою натискання ЛКМ+Ctrl</p>
+
+            <div class="form-group">
+                <input type="submit" value="Зберегти" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Повернутися до списку</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

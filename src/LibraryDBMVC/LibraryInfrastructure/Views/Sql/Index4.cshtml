@@ -1,0 +1,44 @@
+﻿@model List<BookStatusSearchResult>
+@{
+    ViewData["Title"] = "Запит 4";
+}
+
+<h2>Переглянути книги з таким же статусом</h2>
+
+<a asp-action="Index">Назад</a>
+
+<form method="get" asp-action="SearchBooksByStatus">
+    <div class="form-group">
+        <label for="bookId">Оберіть книгу</label>
+        <select id="bookId" name="bookId" class="form-control" asp-items="ViewBag.Books">
+            <option value="">-- Оберіть книгу --</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Пошук</button>
+</form>
+
+@if (Model != null && Model.Any())
+{
+    <h3 class="mt-4">Книги зі статусом: <strong>@ViewBag.SelectedStatus</strong></h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Назва</th>
+                <th>Статус</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (ViewBag.Message != null)
+{
+    <div class="alert alert-warning mt-3">@ViewBag.Message</div>
+}

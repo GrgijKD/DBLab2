@@ -1,0 +1,48 @@
+﻿@model List<string>
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    ViewData["Title"] = "Запит 8";
+    var workers = (List<SelectListItem>)ViewBag.Workers;
+    int selectedWorker = ViewBag.SelectedWorker ?? -1;
+}
+
+<h2>Перелянути працівників, які додали стільки ж книг, скільки й обраний</h2>
+
+<a asp-action="Index">Назад</a>
+
+<form method="post" asp-action="SearchWorkersWithSameBookCount">
+    <div class="form-group">
+        <label for="workerSelect">Оберіть працівника:</label>
+        <select class="form-control" id="workerSelect" name="selectedWorkerId" required>
+            <option value="">-- Оберіть --</option>
+            @foreach (var worker in workers)
+            {
+                <option value="@worker.Value" selected="@(worker.Value == selectedWorker.ToString() ? "selected" : null)">
+                    @worker.Text
+                </option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Пошук</button>
+</form>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-warning mt-3">@ViewBag.Message</div>
+}
+
+@if (Model != null && Model.Any())
+{
+    <h3 class="mt-4">Працівники:</h3>
+    <ul>
+        @foreach (var name in Model)
+        {
+            <li>@name</li>
+        }
+    </ul>
+}
+else if (Model != null)
+{
+    <p class="mt-4">Немає працівників із такою ж кількістю доданих книг.</p>
+}

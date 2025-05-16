@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Запит 3";
+    var results = ViewBag.Results as List<LibraryInfrastructure.Models.WorkerSearchResult>;
+    int? minBooks = ViewBag.MinBooks as int?;
+}
+
+<h2>Переглянути працівників за кількістю доданих книг</h2>
+
+<a asp-action="Index">Назад</a>
+
+<form method="get">
+    <div class="form-group">
+        <label for="minBooks">Мінімальна кількість книг:</label>
+        <input type="number" id="minBooks" name="minBooks" class="form-control" value="@minBooks" min="0" />
+    </div>
+    <button type="submit" class="btn btn-primary">Пошук</button>
+</form>
+
+@if (results != null && results.Any())
+{
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>Email працівника</th>
+                    <th>Кількість доданих книг</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in results)
+            {
+                    <tr>
+                        <td>@item.FullName</td>
+                        <td>@item.BooksAdded</td>
+                    </tr>
+            }
+            </tbody>
+        </table>
+}
+else if (minBooks != null)
+{
+        <p class="mt-4">Немає працівників, які додали більше ніж @minBooks книг.</p>
+}

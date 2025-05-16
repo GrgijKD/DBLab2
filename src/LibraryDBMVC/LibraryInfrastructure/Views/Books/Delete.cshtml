@@ -1,0 +1,62 @@
+﻿@model LibraryDomain.Model.Book
+
+@{
+    ViewData["Title"] = "Видалення";
+}
+
+<h1>Видалення</h1>
+
+<h4>Книга</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <dl class="row">
+            <dt class="col-sm-3">Назва</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Title)</dd>
+
+            <dt class="col-sm-3">Видавництво</dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Publisher.Name)
+            </dd>
+
+            <dt class="col-sm-3">Ким додано</dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Worker.FullName)
+            </dd>
+
+            <dt class="col-sm-3">Автор</dt>
+            <dd class="col-sm-9">
+                @if (Model.AuthorsBooks != null && Model.AuthorsBooks.Any())
+                {
+                    @string.Join(", ", Model.AuthorsBooks.Select(ab => ab.Author.FullName))
+                }
+            </dd>
+
+            <dt class="col-sm-3">Жанр</dt>
+            <dd class="col-sm-9">
+                @if (Model.GenresBooks != null && Model.GenresBooks.Any())
+                {
+                    @string.Join(", ", Model.GenresBooks.Select(gb => gb.Genre.GenreName))
+                }
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<h4>Ви впевнені, що хочете видалити цю книгу?</h4>
+
+<div>
+    <form asp-action="Delete" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Видалити" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Повернутися</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

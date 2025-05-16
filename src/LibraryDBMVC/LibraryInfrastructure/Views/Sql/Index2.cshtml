@@ -1,0 +1,65 @@
+﻿@model List<LibraryInfrastructure.Models.BookSearchResult>
+@{
+    ViewData["Title"] = "Запит 2";
+    var genres = ViewBag.Genres as List<string> ?? new();
+    var authors = ViewBag.Authors as List<string> ?? new();
+}
+
+<h2>Переглянути доступні книги з певними автором та жанром</h2>
+
+<a asp-action="Index">Назад</a>
+
+<form method="get" asp-action="Index2" class="mb-4">
+    <div class="form-group">
+        <label for="genreName">Жанр</label>
+        <input list="genreList" class="form-control" name="genreName" id="genreName"
+               value="@ViewBag.GenreInput" placeholder="" />
+        <datalist id="genreList">
+            @foreach (var genre in genres)
+            {
+                <option value="@genre" />
+            }
+        </datalist>
+    </div>
+
+    <div class="form-group mt-3">
+        <label for="authorName">Автор</label>
+        <input list="authorList" class="form-control" name="authorName" id="authorName"
+               value="@ViewBag.AuthorInput" placeholder="" />
+        <datalist id="authorList">
+            @foreach (var author in authors)
+            {
+                <option value="@author" />
+            }
+        </datalist>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Пошук</button>
+</form>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Назва</th>
+                <th>Автор</th>
+                <th>Жанр</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model)
+            {
+                <tr>
+                    <td>@result.Title</td>
+                    <td>@result.Author</td>
+                    <td>@result.Genre</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (!string.IsNullOrEmpty(ViewBag.GenreInput) && !string.IsNullOrEmpty(ViewBag.AuthorInput))
+{
+    <p class="text-danger">Книги не знайдені.</p>
+}

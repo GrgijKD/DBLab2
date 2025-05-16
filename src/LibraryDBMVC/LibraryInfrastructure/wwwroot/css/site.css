@@ -1,0 +1,91 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+    background-image: url('/images/background.jpg');
+    background-color: #c6b3a1;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+main {
+    background-color: #c6b3a1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 1350px;
+    margin: 20px auto;
+}
+
+a {
+    color: #3d2b1f !important;
+}
+
+nav.navbar,
+footer.footer {
+    background-color: #c6b3a1 !important;
+    backdrop-filter: blur(5px);
+}
+
+input,
+textarea,
+select {
+    background-color: #f5e1c8 !important;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #5a3e2b;
+}
+
+input[type=submit],
+.btn{
+    background-color: #5a3e2b !important;
+    color: #f5e1c8 !important;
+}
+
+nav.navbar {
+    background-color: #c6b3a1 !important;
+    color: #3d2b1f !important;
+}
+
+.status-available {
+    color: green;
+    font-weight: bold;
+}
+
+.status-unavailable {
+    color: black;
+    font-weight: bold;
+}
+
+.status-overdue {
+    color: red;
+    font-weight: bold;
+}
+
+.status-reserved {
+    color: darkgoldenrod;
+    font-weight: bold;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}

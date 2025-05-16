@@ -1,0 +1,30 @@
+C:\Users\User\Загрузки\Универ\Прога\ISTTPLab1\src\LibraryMVC\LibraryDomain\bin\Debug\net8.0\LibraryDomain.deps.json
+C:\Users\User\Загрузки\Универ\Прога\ISTTPLab1\src\LibraryMVC\LibraryDomain\bin\Debug\net8.0\LibraryDomain.dll
+C:\Users\User\Загрузки\Универ\Прога\ISTTPLab1\src\LibraryMVC\LibraryDomain\bin\Debug\net8.0\LibraryDomain.pdb
+C:\Users\User\Загрузки\Универ\Прога\ISTTPLab1\src\LibraryMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Загрузки\Универ\Прога\ISTTPLab1\src\LibraryMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.AssemblyInfoInputs.cache
+C:\Users\User\Загрузки\Универ\Прога\ISTTPLab1\src\LibraryMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.AssemblyInfo.cs
+C:\Users\User\Загрузки\Универ\Прога\ISTTPLab1\src\LibraryMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.csproj.CoreCompileInputs.cache
+C:\Users\User\Загрузки\Универ\Прога\ISTTPLab1\src\LibraryMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.dll
+C:\Users\User\Загрузки\Универ\Прога\ISTTPLab1\src\LibraryMVC\LibraryDomain\obj\Debug\net8.0\refint\LibraryDomain.dll
+C:\Users\User\Загрузки\Универ\Прога\ISTTPLab1\src\LibraryMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.pdb
+C:\Users\User\Загрузки\Универ\Прога\ISTTPLab1\src\LibraryMVC\LibraryDomain\obj\Debug\net8.0\ref\LibraryDomain.dll
+C:\Users\User\Загрузки\Универ\Прога\ISTTPLab1\src\LibraryMVC\LibraryDomain\bin\Debug\net8.0\LibraryDomain.runtimeconfig.json
+C:\Users\User\Загрузки\Универ\Прога\ISTTPLab1\src\LibraryMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.csproj.AssemblyReference.cache
+C:\Users\User\Загрузки\Универ\Прога\ISTTPLab1\src\LibraryMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.genruntimeconfig.cache
+C:\Users\User\Загрузки\Универ\Прога\ISTTPLab1\src\LibraryMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.sourcelink.json
+C:\Users\User\Загрузки\Универ\Базы данных\DBLab2\src\LibraryDBMVC\LibraryDomain\bin\Debug\net8.0\LibraryDomain.deps.json
+C:\Users\User\Загрузки\Универ\Базы данных\DBLab2\src\LibraryDBMVC\LibraryDomain\bin\Debug\net8.0\LibraryDomain.runtimeconfig.json
+C:\Users\User\Загрузки\Универ\Базы данных\DBLab2\src\LibraryDBMVC\LibraryDomain\bin\Debug\net8.0\LibraryDomain.dll
+C:\Users\User\Загрузки\Универ\Базы данных\DBLab2\src\LibraryDBMVC\LibraryDomain\bin\Debug\net8.0\LibraryDomain.pdb
+C:\Users\User\Загрузки\Универ\Базы данных\DBLab2\src\LibraryDBMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.csproj.AssemblyReference.cache
+C:\Users\User\Загрузки\Универ\Базы данных\DBLab2\src\LibraryDBMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Загрузки\Универ\Базы данных\DBLab2\src\LibraryDBMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.AssemblyInfoInputs.cache
+C:\Users\User\Загрузки\Универ\Базы данных\DBLab2\src\LibraryDBMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.AssemblyInfo.cs
+C:\Users\User\Загрузки\Универ\Базы данных\DBLab2\src\LibraryDBMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.csproj.CoreCompileInputs.cache
+C:\Users\User\Загрузки\Универ\Базы данных\DBLab2\src\LibraryDBMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.sourcelink.json
+C:\Users\User\Загрузки\Универ\Базы данных\DBLab2\src\LibraryDBMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.dll
+C:\Users\User\Загрузки\Универ\Базы данных\DBLab2\src\LibraryDBMVC\LibraryDomain\obj\Debug\net8.0\refint\LibraryDomain.dll
+C:\Users\User\Загрузки\Универ\Базы данных\DBLab2\src\LibraryDBMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.pdb
+C:\Users\User\Загрузки\Универ\Базы данных\DBLab2\src\LibraryDBMVC\LibraryDomain\obj\Debug\net8.0\LibraryDomain.genruntimeconfig.cache
+C:\Users\User\Загрузки\Универ\Базы данных\DBLab2\src\LibraryDBMVC\LibraryDomain\obj\Debug\net8.0\ref\LibraryDomain.dll
