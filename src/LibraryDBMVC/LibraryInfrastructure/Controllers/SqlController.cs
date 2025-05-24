@@ -314,53 +314,59 @@ namespace LibraryInfrastructure.Controllers
 
         public IActionResult Index8()
         {
-            ViewBag.Workers = _context.Workers
-                .Select(w => new SelectListItem
-                {
-                    Value = w.Id.ToString(),
-                    Text = w.FullName
-                })
-                .ToList();
+            ViewBag.Statuses = new List<SelectListItem>
+            {
+                new SelectListItem { Value = "Доступна", Text = "Доступна" },
+                new SelectListItem { Value = "Недоступна", Text = "Недоступна" },
+                new SelectListItem { Value = "Заброньована", Text = "Заброньована" },
+                new SelectListItem { Value = "Прострочена", Text = "Прострочена" }
+            };
 
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> SearchWorkersWithSameBookCount(int selectedWorkerId)
+        public async Task<IActionResult> SearchBooksByStatuses(List<string> statuses)
         {
-            var workersList = _context.Workers
-                .Select(w => new SelectListItem
-                {
-                    Value = w.Id.ToString(),
-                    Text = w.FullName
-                })
-                .ToList();
+            ViewBag.Statuses = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "Доступна", Text = "Доступна" },
+        new SelectListItem { Value = "Недоступна", Text = "Недоступна" },
+        new SelectListItem { Value = "Заброньована", Text = "Заброньована" },
+        new SelectListItem { Value = "Прострочена", Text = "Прострочена" }
+    };
+            ViewBag.SelectedStatuses = statuses;
 
-            ViewBag.Workers = workersList;
-            ViewBag.SelectedWorker = selectedWorkerId;
-
-            int? selectedWorkerBookCount = await _context.Books
-                .Where(b => b.AddedBy == selectedWorkerId)
-                .CountAsync();
-
-            if (selectedWorkerBookCount == 0)
+            if (statuses == null || !statuses.Any())
             {
-                ViewBag.Message = "Вибраний працівник не додав жодної книги.";
+                ViewBag.Message = "Оберіть хоча б один статус.";
                 return View("Index8", new List<string>());
             }
 
-            string sql = $@"
-                SELECT w.[Full Name]
-                FROM Workers w
-                WHERE (
-                    SELECT COUNT(*)
-                    FROM Books b
-                    WHERE b.[Added By] = w.Id
-                ) = {{0}}";
+            var sqlParams = statuses.Select((s, i) => new Microsoft.Data.SqlClient.SqlParameter($"@p{i}", s)).ToArray();
+            var paramNames = string.Join(",", sqlParams.Select(p => p.ParameterName));
 
-            var result = await _context.Workers
-                .FromSqlRaw(sql, selectedWorkerBookCount)
-                .Select(w => w.FullName)
+            string sql = $@"
+                SELECT b.Title
+                FROM Books b
+                LEFT JOIN (
+                    SELECT br.BookId, br.Status
+                    FROM BookReservations br
+                    INNER JOIN (
+                        SELECT BookId, MAX(ReservationDate) AS MaxDate
+                        FROM BookReservations
+                        GROUP BY BookId
+                    ) lastRes ON br.BookId = lastRes.BookId AND br.ReservationDate = lastRes.MaxDate
+                ) AS lastStatus ON b.Id = lastStatus.BookId
+                WHERE 
+                    (lastStatus.Status IN ({paramNames}))
+                    OR
+                    (lastStatus.Status IS NULL AND 'Доступна' IN ({paramNames}))
+            ";
+
+            var result = await _context.Books
+                .FromSqlRaw(sql, sqlParams)
+                .Select(b => b.Title)
                 .ToListAsync();
 
             return View("Index8", result);

@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C7AC72A8-2745-4E8B-839B-74C2C05E3E9A}|LibraryInfrastructure\\LibraryInfrastructure.csproj|c:\\users\\user\\\u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0443\u043D\u0438\u0432\u0435\u0440\\\u0431\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\dblab2\\src\\librarydbmvc\\libraryinfrastructure\\librarycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C7AC72A8-2745-4E8B-839B-74C2C05E3E9A}|LibraryInfrastructure\\LibraryInfrastructure.csproj|solutionrelative:libraryinfrastructure\\librarycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C7AC72A8-2745-4E8B-839B-74C2C05E3E9A}|LibraryInfrastructure\\LibraryInfrastructure.csproj|c:\\users\\user\\\u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0443\u043D\u0438\u0432\u0435\u0440\\\u0431\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\dblab2\\src\\librarydbmvc\\libraryinfrastructure\\views\\sql\\index8.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C7AC72A8-2745-4E8B-839B-74C2C05E3E9A}|LibraryInfrastructure\\LibraryInfrastructure.csproj|solutionrelative:libraryinfrastructure\\views\\sql\\index8.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C7AC72A8-2745-4E8B-839B-74C2C05E3E9A}|LibraryInfrastructure\\LibraryInfrastructure.csproj|c:\\users\\user\\\u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0443\u043D\u0438\u0432\u0435\u0440\\\u0431\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\dblab2\\src\\librarydbmvc\\libraryinfrastructure\\views\\sql\\index1.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C7AC72A8-2745-4E8B-839B-74C2C05E3E9A}|LibraryInfrastructure\\LibraryInfrastructure.csproj|solutionrelative:libraryinfrastructure\\views\\sql\\index1.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C7AC72A8-2745-4E8B-839B-74C2C05E3E9A}|LibraryInfrastructure\\LibraryInfrastructure.csproj|c:\\users\\user\\\u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0443\u043D\u0438\u0432\u0435\u0440\\\u0431\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\dblab2\\src\\librarydbmvc\\libraryinfrastructure\\controllers\\sqlcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C7AC72A8-2745-4E8B-839B-74C2C05E3E9A}|LibraryInfrastructure\\LibraryInfrastructure.csproj|solutionrelative:libraryinfrastructure\\controllers\\sqlcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{C7AC72A8-2745-4E8B-839B-74C2C05E3E9A}|LibraryInfrastructure\\LibraryInfrastructure.csproj|c:\\users\\user\\\u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0443\u043D\u0438\u0432\u0435\u0440\\\u0431\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\dblab2\\src\\librarydbmvc\\libraryinfrastructure\\views\\sql\\index7.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C7AC72A8-2745-4E8B-839B-74C2C05E3E9A}|LibraryInfrastructure\\LibraryInfrastructure.csproj|solutionrelative:libraryinfrastructure\\views\\sql\\index7.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F696297B-ABCA-4BBB-BE96-5EAC0C49E754}|LibraryDomain\\LibraryDomain.csproj|c:\\users\\user\\\u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0443\u043D\u0438\u0432\u0435\u0440\\\u0431\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\dblab2\\src\\librarydbmvc\\librarydomain\\model\\bookreservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F696297B-ABCA-4BBB-BE96-5EAC0C49E754}|LibraryDomain\\LibraryDomain.csproj|solutionrelative:librarydomain\\model\\bookreservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C7AC72A8-2745-4E8B-839B-74C2C05E3E9A}|LibraryInfrastructure\\LibraryInfrastructure.csproj|c:\\users\\user\\\u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0443\u043D\u0438\u0432\u0435\u0440\\\u0431\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\dblab2\\src\\librarydbmvc\\libraryinfrastructure\\views\\sql\\index6.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C7AC72A8-2745-4E8B-839B-74C2C05E3E9A}|LibraryInfrastructure\\LibraryInfrastructure.csproj|solutionrelative:libraryinfrastructure\\views\\sql\\index6.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C7AC72A8-2745-4E8B-839B-74C2C05E3E9A}|LibraryInfrastructure\\LibraryInfrastructure.csproj|c:\\users\\user\\\u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0443\u043D\u0438\u0432\u0435\u0440\\\u0431\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\dblab2\\src\\librarydbmvc\\libraryinfrastructure\\views\\sql\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C7AC72A8-2745-4E8B-839B-74C2C05E3E9A}|LibraryInfrastructure\\LibraryInfrastructure.csproj|solutionrelative:libraryinfrastructure\\views\\sql\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C7AC72A8-2745-4E8B-839B-74C2C05E3E9A}|LibraryInfrastructure\\LibraryInfrastructure.csproj|c:\\users\\user\\\u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0443\u043D\u0438\u0432\u0435\u0440\\\u0431\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\dblab2\\src\\librarydbmvc\\libraryinfrastructure\\librarycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C7AC72A8-2745-4E8B-839B-74C2C05E3E9A}|LibraryInfrastructure\\LibraryInfrastructure.csproj|solutionrelative:libraryinfrastructure\\librarycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,59 +42,84 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "BookReservation.cs",
+              "DocumentMoniker": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\LibraryDomain\\Model\\BookReservation.cs",
+              "RelativeDocumentMoniker": "LibraryDomain\\Model\\BookReservation.cs",
+              "ToolTip": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\LibraryDomain\\Model\\BookReservation.cs",
+              "RelativeToolTip": "LibraryDomain\\Model\\BookReservation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T10:46:23.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index7.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\LibraryInfrastructure\\Views\\Sql\\Index7.cshtml",
+              "RelativeDocumentMoniker": "LibraryInfrastructure\\Views\\Sql\\Index7.cshtml",
+              "ToolTip": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\LibraryInfrastructure\\Views\\Sql\\Index7.cshtml",
+              "RelativeToolTip": "LibraryInfrastructure\\Views\\Sql\\Index7.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-24T10:44:52.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index6.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\LibraryInfrastructure\\Views\\Sql\\Index6.cshtml",
+              "RelativeDocumentMoniker": "LibraryInfrastructure\\Views\\Sql\\Index6.cshtml",
+              "ToolTip": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\LibraryInfrastructure\\Views\\Sql\\Index6.cshtml",
+              "RelativeToolTip": "LibraryInfrastructure\\Views\\Sql\\Index6.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-24T10:44:52.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\LibraryInfrastructure\\Views\\Sql\\Index.cshtml",
+              "RelativeDocumentMoniker": "LibraryInfrastructure\\Views\\Sql\\Index.cshtml",
+              "ToolTip": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\LibraryInfrastructure\\Views\\Sql\\Index.cshtml",
+              "RelativeToolTip": "LibraryInfrastructure\\Views\\Sql\\Index.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-19T07:38:46.981Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Index8.cshtml",
               "DocumentMoniker": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\LibraryInfrastructure\\Views\\Sql\\Index8.cshtml",
               "RelativeDocumentMoniker": "LibraryInfrastructure\\Views\\Sql\\Index8.cshtml",
               "ToolTip": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\LibraryInfrastructure\\Views\\Sql\\Index8.cshtml",
               "RelativeToolTip": "LibraryInfrastructure\\Views\\Sql\\Index8.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA8AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-16T12:49:31.173Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index1.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\LibraryInfrastructure\\Views\\Sql\\Index1.cshtml",
-              "RelativeDocumentMoniker": "LibraryInfrastructure\\Views\\Sql\\Index1.cshtml",
-              "ToolTip": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\LibraryInfrastructure\\Views\\Sql\\Index1.cshtml",
-              "RelativeToolTip": "LibraryInfrastructure\\Views\\Sql\\Index1.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-16T12:47:47.914Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "SqlController.cs",
               "DocumentMoniker": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\LibraryInfrastructure\\Controllers\\SqlController.cs",
               "RelativeDocumentMoniker": "LibraryInfrastructure\\Controllers\\SqlController.cs",
               "ToolTip": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\LibraryInfrastructure\\Controllers\\SqlController.cs",
               "RelativeToolTip": "LibraryInfrastructure\\Controllers\\SqlController.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAApwB0AAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAFQBAAAAAAAAAAAUwGwBAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-14T11:58:39.366Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\LibraryInfrastructure\\Views\\Sql\\Index.cshtml",
-              "RelativeDocumentMoniker": "LibraryInfrastructure\\Views\\Sql\\Index.cshtml",
-              "ToolTip": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\LibraryInfrastructure\\Views\\Sql\\Index.cshtml",
-              "RelativeToolTip": "LibraryInfrastructure\\Views\\Sql\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-15T10:15:03.327Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "LibraryContext.cs",
               "DocumentMoniker": "C:\\Users\\User\\\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0438\\\u0423\u043D\u0438\u0432\u0435\u0440\\\u0411\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445\\DBLab2\\src\\LibraryDBMVC\\LibraryInfrastructure\\LibraryContext.cs",
               "RelativeDocumentMoniker": "LibraryInfrastructure\\LibraryContext.cs",
@@ -94,8 +127,7 @@
               "RelativeToolTip": "LibraryInfrastructure\\LibraryContext.cs",
               "ViewState": "AgIAAKgAAAAAAAAAAAAAwLwAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T12:26:06.02Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-14T12:26:06.02Z"
             }
           ]
         }

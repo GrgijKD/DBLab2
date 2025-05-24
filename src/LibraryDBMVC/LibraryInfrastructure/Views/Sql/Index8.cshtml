@@ -1,30 +1,49 @@
 ﻿@model List<string>
 @using Microsoft.AspNetCore.Mvc.Rendering
+@using System.Text.Json
+@using System.Text.Encodings.Web
 
 @{
     ViewData["Title"] = "Запит 8";
-    var workers = (List<SelectListItem>)ViewBag.Workers;
-    int selectedWorker = ViewBag.SelectedWorker ?? -1;
+    var statuses = (List<SelectListItem>)ViewBag.Statuses;
+    var selectedStatuses = ViewBag.SelectedStatuses as List<string> ?? new List<string>();
+    var statusesJson = JsonSerializer.Serialize(statuses, new JsonSerializerOptions
+            {
+                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+            });
 }
 
-<h2>Перелянути працівників, які додали стільки ж книг, скільки й обраний</h2>
+<h2>Переглянути книги з обраними статусами</h2>
 
-<a asp-action="Index">Назад</a>
+<form method="post" asp-action="SearchBooksByStatuses" id="statusForm">
+    <div id="statusSelectors">
+        @for (int i = 0; i < selectedStatuses.Count; i++)
+        {
+            <select class="form-control mb-2" name="statuses">
+                @foreach (var status in statuses)
+                {
+                    <option value="@status.Value" selected="@(status.Value == selectedStatuses[i] ? "selected" : null)">
+                        @status.Text
+                    </option>
+                }
+            </select>
+        }
 
-<form method="post" asp-action="SearchWorkersWithSameBookCount">
-    <div class="form-group">
-        <label for="workerSelect">Оберіть працівника:</label>
-        <select class="form-control" id="workerSelect" name="selectedWorkerId" required>
-            <option value="">-- Оберіть --</option>
-            @foreach (var worker in workers)
-            {
-                <option value="@worker.Value" selected="@(worker.Value == selectedWorker.ToString() ? "selected" : null)">
-                    @worker.Text
-                </option>
-            }
-        </select>
+        @if (!selectedStatuses.Any())
+        {
+            <select class="form-control mb-2" name="statuses">
+                @foreach (var status in statuses)
+                {
+                    <option value="@status.Value">@status.Text</option>
+                }
+            </select>
+        }
     </div>
-    <button type="submit" class="btn btn-primary mt-2">Пошук</button>
+    <div class="mb-3">
+        <button type="button" class="btn btn-success" onclick="addStatus()">Додати статус</button>
+        <button type="button" class="btn btn-danger" onclick="removeStatus()">Видалити статус</button>
+    </div>
+    <button type="submit" class="btn btn-primary">Пошук</button>
 </form>
 
 @if (!string.IsNullOrEmpty(ViewBag.Message))
@@ -34,15 +53,54 @@
 
 @if (Model != null && Model.Any())
 {
-    <h3 class="mt-4">Працівники:</h3>
+    <h3 class="mt-4">Книги:</h3>
     <ul>
-        @foreach (var name in Model)
+        @foreach (var title in Model)
         {
-            <li>@name</li>
+            <li>@title</li>
         }
     </ul>
 }
 else if (Model != null)
 {
-    <p class="mt-4">Немає працівників із такою ж кількістю доданих книг.</p>
+    <p class="mt-4">Книг із вказаними статусами не знайдено.</p>
+}
+
+@section Scripts {
+    <script>
+        const allStatuses = @Html.Raw(statusesJson);
+
+        function addStatus() {
+            const selectors = document.querySelectorAll('#statusSelectors select');
+            const used = Array.from(selectors).map(s => s.value);
+            const available = allStatuses.filter(s => !used.includes(s.Value));
+
+            if (available.length === 0) {
+                alert("Усі статуси вже обрані.");
+                return;
+            }
+
+            const select = document.createElement('select');
+            select.className = 'form-control mb-2';
+            select.name = 'statuses';
+
+            available.forEach(s => {
+                const option = document.createElement('option');
+                option.value = s.Value;
+                option.textContent = s.Text;
+                select.appendChild(option);
+            });
+
+            document.getElementById('statusSelectors').appendChild(select);
+        }
+
+        function removeStatus() {
+            const selectors = document.querySelectorAll('#statusSelectors select');
+            if (selectors.length > 1) {
+                selectors[selectors.length - 1].remove();
+            } else {
+                alert("Повинен залишитися хоча б один статус.");
+            }
+        }
+    </script>
 }
